@@ -1,0 +1,2 @@
+Channel_secret= '1de016db28573bd1014c06802c24c054'
+Channel_access_token = '1de016db28573bd1014c06802c24c054'
