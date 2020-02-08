@@ -25,12 +25,12 @@ def webhook():
 
         for i in range (len(book["tags"])):
             print(book["tags"][i]["name"])
-            # Reply_messasge = book["tags"][i]["name"]
-            # ReplyMessage(Reply_token,Reply_messasge,Channel_access_token)
+            # Reply_msg = book["tags"][i]["name"]
+            # ReplyMessage(Reply_token,Reply_msg,Channel_access_token)
         title = book["title"]['english']
-        Reply_messasge = json.dumps(title)
-        print(Reply_messasge)
-        ReplyMessage(Reply_token,Reply_messasge,Channel_access_token)
+        Reply_msg = json.dumps(title)
+        print(Reply_msg)
+        ReplyMessage(Reply_token,Reply_msg,Channel_access_token)
         
         
         return request.json, 200
@@ -48,7 +48,7 @@ def hello():
 def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
-    Authorization = 'Bearer {}'.format('7VhCJLogwUjrZjNtOXuXK7aqVWK7/vHKW5A1TdNnD4eFzoBOL8bM8ukFqD8QEsRPnkfO4TmwIZ2AREUEOTme4ijk6xbFnBmhNK0maDYizUVw96x0ZHAe95BTG9SuCsMB4mbY8/z9nxXcgos9fTJ8jgdB04t89/1O/w1cDnyilFU=')
+    Authorization = 'Bearer {}'.format('ACCESS TOKEN')
     print(Authorization)
     headers = {
         'Content-Type': 'application/json; charset=UTF-8',
