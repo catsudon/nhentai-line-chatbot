@@ -79,7 +79,7 @@ def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token , num, img):
         "messages":[
             {
   "type": "flex",
-  "altText": "Flex Message",
+  "altText": "Not safe for work",
   "contents": {
     "type": "bubble",
     "direction": "ltr",
