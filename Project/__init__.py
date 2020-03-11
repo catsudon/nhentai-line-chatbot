@@ -87,7 +87,7 @@ def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token , num, img):
       "type": "image",
       "url": img,
       "size": "full",
-      "aspectRatio": "3:4",
+      "aspectRatio": "350:506",
       "aspectMode": "fit",
       "backgroundColor": "#6A0707"
     },
