@@ -1,4 +1,4 @@
-Channel_access_token = '7VhCJLogwUjrZjNtOXuXK7aqVWK7/vHKW5A1TdNnD4eFzoBOL8bM8ukFqD8QEsRPnkfO4TmwIZ2AREUEOTme4ijk6xbFnBmhNK0maDYizUVw96x0ZHAe95BTG9SuCsMB4mbY8/z9nxXcgos9fTJ8jgdB04t89/1O/w1cDnyilFU='
+Channel_access_token = 'YOUR LINE ACCESS TOKEN HERE'
 
 def con(code,title,pic,w=350,h=500):
     return {
