@@ -91,7 +91,7 @@ def multiple(payload):
         dt = json.dumps(dt) # from dict to str
     #   print(dt)
         r = requests.post(LINE_API, headers=headers, data=dt) 
-        print(r)
+        print(r.text)
         return 200
 
 
