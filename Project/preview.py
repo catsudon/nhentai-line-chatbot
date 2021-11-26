@@ -20,7 +20,7 @@ def preview(payload):
         r = requests.get(f"https://nhentai.net/g/{message}/{i}/")
         soup = BeautifulSoup(r.text,"html.parser")
         a = soup.find_all('img')
-        payload.append(con3(a[1]['src']),book['images']['pages'][1])
+        payload.append(con3(a[1]['src']))
         print(a[1]['src'])
         if(len(payload)==5):
             break
