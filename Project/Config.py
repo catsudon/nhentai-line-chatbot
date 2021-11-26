@@ -1,4 +1,7 @@
-Channel_access_token = '7VhCJLogwUjrZjNtOXuXK7aqVWK7/vHKW5A1TdNnD4eFzoBOL8bM8ukFqD8QEsRPnkfO4TmwIZ2AREUEOTme4ijk6xbFnBmhNK0maDYizUVw96x0ZHAe95BTG9SuCsMB4mbY8/z9nxXcgos9fTJ8jgdB04t89/1O/w1cDnyilFU='
+frank_access_token = '7VhCJLogwUjrZjNtOXuXK7aqVWK7/vHKW5A1TdNnD4eFzoBOL8bM8ukFqD8QEsRPnkfO4TmwIZ2AREUEOTme4ijk6xbFnBmhNK0maDYizUVw96x0ZHAe95BTG9SuCsMB4mbY8/z9nxXcgos9fTJ8jgdB04t89/1O/w1cDnyilFU='
+Channel_access_token = 'kitU7r1CNHa1+t4eUACoTRonmtZdX+c2SSTGW7Hs2Zmu+R8WK88kl8etpaxTGE3inWBxZUxa7gJ/kjjqJTCcOnaebc2AXY1ixendrmH436NjMpSLYSVm4+BVgOsTfIEQdnvyo+OAEcKo2nSq6O+i5gdB04t89/1O/w1cDnyilFU='
+
+Channel_access_token = frank_access_token
 
 def con(code,title,pic,w=350,h=500):
     return {
@@ -68,7 +71,7 @@ def con2(code,title,pic,w=350,h=500):
         {
           "type": "text",
           "text": title[1:41],
-          "size": "xl",
+          "size": "lg",
           "align": "start",
           "gravity": "top",
           "color": "#3E2929"
@@ -77,7 +80,7 @@ def con2(code,title,pic,w=350,h=500):
     },
     "footer": {
       "type": "box",
-      "layout": "horizontal",
+      "layout": "vertical",
       "contents": [
         {
           "type": "button",
@@ -87,12 +90,41 @@ def con2(code,title,pic,w=350,h=500):
             "uri": "https://nhentai.net/g/"+str(code)
           },
           "flex": 6,
-          "color": "#9564f5",
+          "color": "#ff5e87",
           "margin": "xs",
           "height": "md",
           "style": "primary",
           "gravity": "top"
-        }
+        },
+        {
+        "type": "button",
+        "action": {
+          "type": "postback",
+          "label": "PREVIEW",
+          "text": "@p {}".format(str(code)),
+          "data": "view preview"
+        },
+        "flex": 6,
+        "color": "#9564f5",
+        "margin": "xs",
+        "height": "md",
+        "style": "primary",
+        "gravity": "top"
+      }
       ]
+    }
+  }
+
+def con3(sauce,w=350,h=500):
+    return {
+    "type": "bubble",
+    "direction": "ltr",
+    "hero": {
+      "type": "image",
+      "url": sauce,
+      "size": "full",
+      "aspectRatio": "{}:{}".format(w,h),
+      "aspectMode": "fit",
+      "backgroundColor": "#FFC0CB"
     }
   }

@@ -2,6 +2,7 @@ from flask import Flask , request , abort
 import requests
 import json
 from Project.Config import *
+from Project.preview import *
 from modules.nhentai import getBookById
 from Project.multiple_search import multiple
 from bs4 import BeautifulSoup
@@ -12,11 +13,18 @@ app = Flask(__name__)
 def webhook():
     if request.method == 'POST':
         payload = request.json
-        message = payload['events'][0]['message']['text']
-        if(message.isdigit()):
-              one_by_one(payload)
-        else:
-              multiple(payload)
+
+        try:
+            temp = payload['events'][1]
+            preview(payload)
+        except Exception:
+            message = payload['events'][0]['message']['text']
+            if(message.isdigit()):
+                one_by_one(payload)
+            elif(message[0:2] == '@p'):
+                print("reply timeout")
+            else:
+                multiple(payload)
         
           
           
@@ -50,7 +58,7 @@ def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token , num, img , w , h):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
     Authorization = 'Bearer {}'.format(Channel_access_token)
-    print(Authorization)
+    print(num)
     headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': Authorization
