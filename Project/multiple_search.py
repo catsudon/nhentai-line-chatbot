@@ -8,7 +8,7 @@ from Project.Config import *
 def multiple(payload):
     Reply_token = payload['events'][0]['replyToken']
     message = payload['events'][0]['message']['text']
-
+    print(message)
     idx = 1
     try:
         banana = message.split(" ")
@@ -22,41 +22,92 @@ def multiple(payload):
     except Exception:
         print("no index given")
 
-    idx = idx/2+1 # because line flex message can only contain up to 10 bubble but there are 25 doujins for each page
 
-    data = json.loads(search(message,idx))
-   # print(data)
-   # print("\n\n\n\n\n")
-    reply_payload = []
-    title = []
-    code = []
-    media_id = []
-    cnt = 0
-    target = 10
-    if idx%2==0:
-        target = 20
+    if(idx%5==3): # needs to search for 2 pages   e.g. the index is 21-30 but one page only contains up to 25 books
+        reply_payload = []
+        title = []
+        code = []
+        media_id = []
+        
 
-    for item in data['result']:
-        if idx%2==0 and cnt < 10:
-            cnt=cnt+1
-            continue
+        # first half   21-25
+        pageid = int((idx-1)/5) +1 # Q U I C K   M A T H S 
+        pageid = pageid*2 - 1
+        data = json.loads(search(message,pageid))
+        cnt = 0
+        target = 25
+        for item in data['result']:
+            if cnt < 20:
+                cnt=cnt+1
+                continue
 
-        print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
-        title.append(item['title']['english'])
-        code.append(item['id'])
-        media_id.append(item['media_id'])
+            print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
+            title.append(item['title']['english'])
+            code.append(item['id'])
+            media_id.append(item['media_id'])
 
-        cnt = cnt + 1
-        if cnt == target :
-            break
+            cnt = cnt + 1
+            if cnt == target :
+                break
+
+        # second half   26-30
+        pageid = pageid+1
+        data = json.loads(search(message,pageid))
+        cnt = 0
+        target = 5
+        for item in data['result']:
+            print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
+            title.append(item['title']['english'])
+            code.append(item['id'])
+            media_id.append(item['media_id'])
+
+            cnt = cnt + 1
+            if cnt == target :
+                break
+        
+
+
+
+    else:
+        pidx = (idx-1)/5+1   # Q U I C K   M A T H S     
+        pidx=pidx*2
+        if(idx <= 2):
+             pidx=pidx-1
+        data = json.loads(search(message,pidx))
+        reply_payload = []
+        title = []
+        code = []
+        media_id = []
+        cnt = 0
+        target = 10
+        if idx%5==2:
+            target = 20
+        elif idx%5==4:
+            target = 15
+        elif idx%5==0:
+            target=25
+        op = target-10 # 
+        for item in data['result']:
+            if cnt < op:
+                cnt=cnt+1
+                continue
+
+            print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
+            title.append(item['title']['english'])
+            code.append(item['id'])
+            media_id.append(item['media_id'])
+
+            cnt = cnt + 1
+            if cnt == target :
+                break
 
     
     for i in range(len(code)):
         reply_payload.append( con(code[i],title[i],media_id[i])   )
 
 
-    print(len(reply_payload))
-    print("_______________________________")
+ #   print(len(reply_payload))
+ #   print("_______________________________")
     if len(reply_payload) == 0:
         print("not found!")
         #nf()
@@ -64,7 +115,7 @@ def multiple(payload):
         LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
         Authorization = 'Bearer {}'.format(Channel_access_token)
-        print(Authorization)
+ #       print(Authorization)
     #    print(reply_payload,indents=4)
         headers = {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -89,7 +140,6 @@ def multiple(payload):
 
 
         dt = json.dumps(dt) # from dict to str
-    #   print(dt)
         r = requests.post(LINE_API, headers=headers, data=dt) 
         print(r.text)
         return 200
@@ -98,4 +148,3 @@ def multiple(payload):
 
 
     
-
