@@ -128,3 +128,32 @@ def con3(sauce,w=350,h=500):
       "backgroundColor": "#FFC0CB"
     }
   }
+
+
+def nf():
+  LINE_API = 'https://api.line.me/v2/bot/message/reply'
+
+  Authorization = 'Bearer {}'.format(Channel_access_token)
+    #    print(reply_payload,indents=4)
+  headers = {
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': Authorization
+  }
+
+  dt = {
+      "replyToken":Reply_token,
+      "messages":
+      [
+          {
+              "type": "text",
+              "text": "not found!"
+          }
+      ]
+  }
+
+
+  dt = json.dumps(dt) # from dict to str
+  r = requests.post(LINE_API, headers=headers, data=dt) 
+  print(r.text)
+  print("search not found")
+  return 200

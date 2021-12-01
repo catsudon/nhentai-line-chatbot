@@ -105,9 +105,6 @@ def multiple(payload):
     for i in range(len(code)):
         reply_payload.append( con(code[i],title[i],media_id[i])   )
 
-
- #   print(len(reply_payload))
- #   print("_______________________________")
     if len(reply_payload) == 0:
         print("not found!")
         #nf()
@@ -115,7 +112,6 @@ def multiple(payload):
         LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
         Authorization = 'Bearer {}'.format(Channel_access_token)
- #       print(Authorization)
     #    print(reply_payload,indents=4)
         headers = {
             'Content-Type': 'application/json; charset=UTF-8',

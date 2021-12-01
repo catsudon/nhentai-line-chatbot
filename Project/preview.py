@@ -4,15 +4,13 @@ from modules.nhentai import getBookById
 import requests
 from bs4 import BeautifulSoup
 
-def preview(payload):
-    Reply_token = payload['events'][1]['replyToken']
-    message = payload['events'][1]['message']['text']
+def preview(Reply_token , message):
     message = message[3:]
     print(f"preview {message}")
     book = json.loads(getBookById(message))
 
     mx_page = len(book['images']['pages'])
-    print(mx_page)
+  #  print(mx_page)
 
     payload = []
 
@@ -22,7 +20,7 @@ def preview(payload):
         a = soup.find_all('img')
         payload.append(con3(a[1]['src']))
         print(a[1]['src'])
-        if(len(payload)==5):
+        if(len(payload)==4):
             break
 
 

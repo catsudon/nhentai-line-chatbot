@@ -16,12 +16,15 @@ def webhook():
 
         try:
             temp = payload['events'][1]
-            preview(payload)
+            Reply_token = payload['events'][1]['replyToken']
+            message = payload['events'][1]['message']['text']
+            preview(Reply_token,message)
         except Exception:
             message = payload['events'][0]['message']['text']
             if(message.isdigit()):
                 one_by_one(payload)
             elif(message[0:2] == '@p'):
+                preview(payload['events'][0]['replyToken'] , message)
                 print("reply timeout")
             else:
                 multiple(payload)
