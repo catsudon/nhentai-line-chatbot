@@ -5,34 +5,23 @@ import requests
 from bs4 import BeautifulSoup
 
 def preview(Reply_token , message):
+    
     message = message[3:]
     print(f"preview {message}")
     book = json.loads(getBookById(message))
 
     mx_page = len(book['images']['pages'])
-  #  print(mx_page)
-
-    sauce = requests.get(f"https://nhentai.net/g/{message}/")
-    soup = BeautifulSoup(sauce.text,"html.parser")
-    a = soup.find_all('img')[2]['src']
-
-    sauce = ""
-    ar = a.split('/')
-    br = False
-    for components in ar:
-        sauce = sauce+components+'/'
-        if(br):
-            break
-        if(components == "galleries"):
-            br=True
+    print(mx_page)
 
     payload = []
 
     for i in range(1,mx_page,int(mx_page/10)+1):
-        src = sauce+str(i)+"t.jpg"
-        payload.append(con3(src))
-        print(src)
-        if(len(payload)==6):
+        r = requests.get(f"https://nhentai.net/g/{message}/{i}/")
+        soup = BeautifulSoup(r.text,"html.parser")
+        a = soup.find_all('img')
+        payload.append(con3(a[1]['src']))
+        print(a[1]['src'])
+        if(len(payload)==5):
             break
 
 
@@ -63,5 +52,4 @@ def preview(Reply_token , message):
 
     dt = json.dumps(dt) # from dict to str
     r = requests.post(LINE_API, headers=headers, data=dt) 
-    requests.post(notify_url, headers=notify_headers, data = {'message': "prev : " + message})
     return 200
