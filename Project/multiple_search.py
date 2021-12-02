@@ -84,7 +84,7 @@ def multiple(payload):
         except KeyError:
             nf(Reply_token)
             return 400
-        reply_payload,title,code,media_id = []
+        reply_payload,title,code,media_id = [],[],[],[]
         cnt = 0
         target = 10
         if idx%5==2:
