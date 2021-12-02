@@ -36,6 +36,11 @@ def multiple(payload):
         data = json.loads(search(message,pageid))
         cnt = 0
         target = 25
+        try:
+            data['result'][0]
+        except KeyError:
+            nf(Reply_token)
+            return 400
         for item in data['result']:
             if cnt < 20:
                 cnt=cnt+1
@@ -74,10 +79,12 @@ def multiple(payload):
         if(idx <= 2):
              pidx=pidx-1
         data = json.loads(search(message,pidx))
-        reply_payload = []
-        title = []
-        code = []
-        media_id = []
+        try:
+            data['result'][0]
+        except KeyError:
+            nf(Reply_token)
+            return 400
+        reply_payload,title,code,media_id = []
         cnt = 0
         target = 10
         if idx%5==2:
@@ -107,7 +114,6 @@ def multiple(payload):
 
     if len(reply_payload) == 0:
         print("not found!")
-        nf(Reply_token)
     else:
         LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
