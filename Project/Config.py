@@ -3,6 +3,10 @@ Channel_access_token = 'kitU7r1CNHa1+t4eUACoTRonmtZdX+c2SSTGW7Hs2Zmu+R8WK88kl8et
 ########## change this to ur token
 Channel_access_token = frank_access_token
 
+notify_url = 'https://notify-api.line.me/api/notify'
+notify_token = 'dTHASUKdvjXK4PojkfsjVjEasZrvkvCMYtmvpgpJmuE'
+notify_headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+notify_token}
+
 def con(code,title,pic,w=350,h=500):
     return {
     "type": "bubble",

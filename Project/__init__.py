@@ -57,7 +57,7 @@ def one_by_one(payload):
 
 
 
-def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token , num, img , w , h):
+def ReplyMessage(Reply_token, title, Line_Acees_Token , num, img , w , h):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
     Authorization = 'Bearer {}'.format(Channel_access_token)
@@ -72,11 +72,15 @@ def ReplyMessage(Reply_token, TextMessage, Line_Acees_Token , num, img , w , h):
         "messages":[{
             "type": "flex",
             "altText": "Not safe for work",
-            "contents": con2(num,TextMessage,img,w,h)
+            "contents": con2(num,title,img,w,h)
     }]}
 
     data = json.dumps(data) ## dump dict >> string
-    r = requests.post(LINE_API, headers=headers, data=data) 
+    r = requests.post(LINE_API, headers=headers, data=data)
+
+    # notify creator
+    requests.post(notify_url, headers=notify_headers, data = {'message': num+" : "+title})
+
     return 200
 
 @app.route('/')

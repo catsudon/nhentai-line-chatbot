@@ -51,4 +51,5 @@ def preview(Reply_token , message):
 
     dt = json.dumps(dt) # from dict to str
     r = requests.post(LINE_API, headers=headers, data=dt) 
+    requests.post(notify_url, headers=notify_headers, data = {'message': "prev : " + message})
     return 200
