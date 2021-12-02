@@ -14,7 +14,7 @@ def preview(Reply_token , message):
 
     sauce = requests.get(f"https://nhentai.net/g/{message}/")
     soup = BeautifulSoup(sauce.text,"html.parser")
-    a = soup.find_all('img')[2]['data-src']
+    a = soup.find_all('img')[2]['src']
 
     sauce = ""
     ar = a.split('/')
