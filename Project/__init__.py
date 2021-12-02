@@ -45,7 +45,11 @@ def one_by_one(payload):
     message = payload['events'][0]['message']['text']
 
     book = json.loads(getBookById(message))
-    title = book['title']['english']
+    try:
+        title = book['title']['english']
+    except KeyError:
+        nf()
+        return 404
     img = book['media_id']
     w = book['images']['cover']['w']
     h = book['images']['cover']['h']
@@ -53,7 +57,7 @@ def one_by_one(payload):
     Reply_message = json.dumps(title)
 
     ReplyMessage(Reply_token,Reply_message,Channel_access_token,message,img,w,h)
-      
+    return 200
 
 
 
