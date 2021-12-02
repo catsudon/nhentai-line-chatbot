@@ -89,7 +89,7 @@ def ReplyMessage(Reply_token, title, Line_Acees_Token , num, img , w , h):
 
 @app.route('/')
 def hello():
-    return 'hello world',200
+    return "IT'S WORKING",200
 
 if __name__ == "__main__":
     app.run(debug=True)
