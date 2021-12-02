@@ -107,7 +107,7 @@ def multiple(payload):
 
     if len(reply_payload) == 0:
         print("not found!")
-        nf()
+        nf(Reply_token)
     else:
         LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
