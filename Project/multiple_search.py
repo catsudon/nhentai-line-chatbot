@@ -103,7 +103,7 @@ def multiple(payload):
 
     
     for i in range(len(code)):
-        reply_payload.append( con(code[i],title[i],media_id[i])   )
+        reply_payload.append( con2(code[i],title[i],media_id[i])   )
 
     if len(reply_payload) == 0:
         print("not found!")
