@@ -138,7 +138,7 @@ def con3(sauce,w=350,h=500):
   }
 
 
-def nf(Reply_token):
+def nf(Reply_token,type = "index"):
   LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
   Authorization = 'Bearer {}'.format(Channel_access_token)
@@ -162,6 +162,6 @@ def nf(Reply_token):
 
   dt = json.dumps(dt) # from dict to str
   r = requests.post(LINE_API, headers=headers, data=dt) 
-  print(r.text)
+  print(type)
   print("search not found")
   return 200

@@ -39,7 +39,7 @@ def multiple(payload):
         try:
             data['result'][0]
         except KeyError:
-            nf(Reply_token)
+            nf(Reply_token,"multiple")
             return 400
         for item in data['result']:
             if cnt < 20:
@@ -82,7 +82,7 @@ def multiple(payload):
         try:
             data['result'][0]
         except KeyError:
-            nf(Reply_token)
+            nf(Reply_token,"multiple")
             return 400
         reply_payload,title,code,media_id = [],[],[],[]
         cnt = 0
