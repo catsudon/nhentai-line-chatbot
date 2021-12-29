@@ -76,7 +76,7 @@ def ReplyMessage(Reply_token, title, Line_Acees_Token , num, img , w , h):
         "messages":[{
             "type": "flex",
             "altText": "Not safe for work",
-            "contents": con(num,title,img,w,h)
+            "contents": con2(num,title,img,w,h)
     }]}
 
     data = json.dumps(data) ## dump dict >> string
