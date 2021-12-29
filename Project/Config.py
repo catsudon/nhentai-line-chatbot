@@ -46,7 +46,7 @@ def con(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ",
-            "uri": "https://nhentai.net/g/"+str(code)
+            "uri": "https://nhentai.net/g/"+str(code)+'/1/'
           },
           "flex": 6,
           "color": "#9564f5",
@@ -95,7 +95,7 @@ def con2(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ",
-            "uri": "https://nhentai.net/g/"+str(code)
+            "uri": "https://nhentai.net/g/"+str(code)+'/1/'
           },
           "flex": 6,
           "color": "#ff5e87",
