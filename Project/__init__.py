@@ -46,7 +46,7 @@ def one_by_one(payload):
 
     book = json.loads(getBookById(message))
     try:
-        title = book['title']['english']
+        title = book['title']['pretty']
     except KeyError:
         nf(Reply_token)
         return 404

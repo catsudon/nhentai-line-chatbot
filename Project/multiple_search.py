@@ -23,7 +23,7 @@ def multiple(payload):
         print("no index given")
 
 
-    if(idx%5==3): # needs to search for 2 pages   e.g. the index is 21-30 but one page only contains up to 25 books
+    if(idx%5==3): # need to search for 2 pages   e.g. the index is 21-30 but one page only contains up to 25 books
         reply_payload = []
         title = []
         code = []
@@ -46,8 +46,8 @@ def multiple(payload):
                 cnt=cnt+1
                 continue
 
-            print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
-            title.append(item['title']['english'])
+            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
+            title.append(item['title']['pretty'])
             code.append(item['id'])
             media_id.append(item['media_id'])
 
@@ -61,8 +61,8 @@ def multiple(payload):
         cnt = 0
         target = 5
         for item in data['result']:
-            print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
-            title.append(item['title']['english'])
+            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
+            title.append(item['title']['pretty'])
             code.append(item['id'])
             media_id.append(item['media_id'])
 
@@ -99,8 +99,8 @@ def multiple(payload):
                 cnt=cnt+1
                 continue
 
-            print("{}   {} {} {}".format(cnt,item['title']['english'],item['id'],item['media_id']))
-            title.append(item['title']['english'])
+            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
+            title.append(item['title']['pretty'])
             code.append(item['id'])
             media_id.append(item['media_id'])
 
