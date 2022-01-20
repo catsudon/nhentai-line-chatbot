@@ -80,7 +80,7 @@ def con2(code,title,pic,w=350,h=500):
       "contents": [
         {
           "type": "text",
-          "text": title[1:41],
+          "text": title[0:41],
           "size": "lg",
           "align": "start",
           "gravity": "top",
