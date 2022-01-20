@@ -49,7 +49,6 @@ def one_by_one(payload):
         title = book['title']['pretty']
     except KeyError:
         nf(Reply_token)
-        requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
         return 404
     img = book['media_id']
     w = book['images']['cover']['w']

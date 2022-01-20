@@ -40,6 +40,7 @@ def multiple(payload):
             data['result'][0]
         except KeyError:
             nf(Reply_token,"multiple")
+            requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
             return 400
         for item in data['result']:
             if cnt < 20:
