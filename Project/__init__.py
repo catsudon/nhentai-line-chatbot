@@ -75,7 +75,7 @@ def ReplyMessage(Reply_token, title, Line_Acees_Token , num, img , w , h):
         "replyToken":Reply_token,
         "messages":[{
             "type": "flex",
-            "altText": "Not safe for work",
+            "altText": "NSFW",
             "contents": con2(num,title,img,w,h)
     }]}
 
