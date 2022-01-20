@@ -61,8 +61,8 @@ def con(code,title,pic,w=350,h=500):
 
 
 def con2(code,title,pic,w=350,h=500):
-    if(title[len(title)-1]=='"'):
-          title[len(title)-1]=' '
+      
+    title[len(title)-1]=' '
     return {
     "type": "bubble",
     "direction": "ltr",
