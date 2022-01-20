@@ -84,6 +84,7 @@ def multiple(payload):
             data['result'][0]
         except KeyError:
             nf(Reply_token,"multiple")
+            requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
             return 400
         reply_payload,title,code,media_id = [],[],[],[]
         cnt = 0
