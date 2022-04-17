@@ -8,6 +8,7 @@ from Project.multiple_search import multiple
 from PIL import Image
 import base64
 from io import BytesIO
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -32,7 +33,7 @@ def webhook():
 
                 im = Image.open(BytesIO(base64.b64decode(bin)))
                 r = requests.post(notify_url, headers=notify_headers, data = {'message': "IMG FOUND ",
-                                                                          'imageFile': im})
+                                                                          'imageFile': bin})
                 print(r.text)
                 return 0
 
