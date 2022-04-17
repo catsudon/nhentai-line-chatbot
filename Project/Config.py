@@ -46,7 +46,7 @@ def con(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ (without ads)",
-            "uri": "https://hifumin.app/h/"+str(code)
+            "uri": "https://hifumin.app/h/"+str(code)+"/1"
           },
           "flex": 6,
           "color": "#9564f5",
@@ -97,7 +97,7 @@ def con2(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ (without ads)",
-            "uri": "https://hifumin.app/h/"+str(code)
+            "uri": "https://hifumin.app/h/"+str(code)+"/1"
           },
           "flex": 6,
           "color": "#ff5e87",
