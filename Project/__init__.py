@@ -5,7 +5,9 @@ from Project.Config import *
 from Project.preview import *
 from modules.nhentai import getBookById
 from Project.multiple_search import multiple
-from bs4 import BeautifulSoup
+from PIL import Image
+import base64
+from io import BytesIO
 
 app = Flask(__name__)
 
@@ -27,9 +29,10 @@ def webhook():
                 id = payload['events'][0]['message']['id']
                 bin = requests.get("https://api-data.line.me/v2/bot/message/"+str(id)+"/content", 
                     headers={'Authorization' : "Bearer 7VhCJLogwUjrZjNtOXuXK7aqVWK7/vHKW5A1TdNnD4eFzoBOL8bM8ukFqD8QEsRPnkfO4TmwIZ2AREUEOTme4ijk6xbFnBmhNK0maDYizUVw96x0ZHAe95BTG9SuCsMB4mbY8/z9nxXcgos9fTJ8jgdB04t89/1O/w1cDnyilFU="}).text
-                print(type(bin))
+
+                im = Image.open(BytesIO(base64.b64decode(bin)))
                 requests.post(notify_url, headers=notify_headers, data = {'message': "IMG FOUND ",
-                                                                          'imageFile': bin})
+                                                                          'imageFile': im})
 
                 return 0
 
