@@ -14,6 +14,8 @@ def webhook():
     if request.method == 'POST':
         payload = request.json
 
+        print(payload)
+
         try:
             temp = payload['events'][1]
             Reply_token = payload['events'][1]['replyToken']
