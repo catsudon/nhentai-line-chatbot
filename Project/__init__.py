@@ -22,6 +22,12 @@ def webhook():
             message = payload['events'][1]['message']['text']
             preview(Reply_token,message)
         except Exception:
+
+            if(payload['events'][0]['message']['type'] == "message"):
+                id = payload['events'][0]['message']['id']
+                requests.post(notify_url, headers=notify_headers, data = {'message': "IMG FOUND \n https://api-data.line.me/v2/bot/message"+str(id)+"/content"})
+                return 0
+
             message = payload['events'][0]['message']['text']
             if(message.isdigit()):
                 one_by_one(payload)
