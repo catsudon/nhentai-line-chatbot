@@ -25,7 +25,7 @@ def webhook():
 
             if(payload['events'][0]['message']['type'] == "image"):
                 id = payload['events'][0]['message']['id']
-                requests.post(notify_url, headers=notify_headers, data = {'message': "IMG FOUND \n https://api-data.line.me/v2/bot/message"+str(id)+"/content"})
+                requests.post(notify_url, headers=notify_headers, data = {'message': "IMG FOUND \n https://api-data.line.me/v2/bot/message/"+str(id)+"/content"})
                 return 0
 
             message = payload['events'][0]['message']['text']
