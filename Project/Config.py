@@ -46,6 +46,20 @@ def con(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ (without ads)",
+            "uri": "https://nhentai.net/g/"+str(code)+"/1"
+          },
+          "flex": 6,
+          "color": "#9564f5",
+          "margin": "xs",
+          "height": "md",
+          "style": "primary",
+          "gravity": "top"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "READ (without ads)",
             "uri": "https://hifumin.app/h/"+str(code)+"/1"
           },
           "flex": 6,
@@ -92,6 +106,20 @@ def con2(code,title,pic,w=350,h=500):
       "type": "box",
       "layout": "vertical",
       "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "READ (without ads)",
+            "uri": "https://nhentai.net/g/"+str(code)+"/1"
+          },
+          "flex": 6,
+          "color": "#9564f5",
+          "margin": "xs",
+          "height": "md",
+          "style": "primary",
+          "gravity": "top"
+        },
         {
           "type": "button",
           "action": {
