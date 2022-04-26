@@ -45,11 +45,11 @@ def con(code,title,pic,w=350,h=500):
           "type": "button",
           "action": {
             "type": "uri",
-            "label": "READ (without ads)",
+            "label": "READ",
             "uri": "https://nhentai.net/g/"+str(code)+"/1"
           },
           "flex": 6,
-          "color": "#9564f5",
+          "color": "#ff5e87",
           "margin": "xs",
           "height": "md",
           "style": "primary",
@@ -110,11 +110,11 @@ def con2(code,title,pic,w=350,h=500):
           "type": "button",
           "action": {
             "type": "uri",
-            "label": "READ (without ads)",
+            "label": "READ",
             "uri": "https://nhentai.net/g/"+str(code)+"/1"
           },
           "flex": 6,
-          "color": "#9564f5",
+          "color": "#ff5e87",
           "margin": "xs",
           "height": "md",
           "style": "primary",
