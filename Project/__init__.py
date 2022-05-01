@@ -49,6 +49,8 @@ def one_by_one(payload):
     Reply_token = payload['events'][0]['replyToken']
     message = payload['events'][0]['message']['text']
 
+    print(getBookById(message))
+    print("++++++++what is wrong with this +++++++++++++++")
     book = json.loads(getBookById(message))
     try:
         title = book['title']['pretty']
