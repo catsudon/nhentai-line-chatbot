@@ -5,7 +5,6 @@ from Project.Config import *
 from Project.preview import *
 from modules.nhentai import getBookById
 from Project.multiple_search import multiple
-from PIL import Image
 import base64
 from io import BytesIO
 from bs4 import BeautifulSoup
@@ -25,17 +24,6 @@ def webhook():
             message = payload['events'][1]['message']['text']
             preview(Reply_token,message)
         except Exception:
-
-            if(payload['events'][0]['message']['type'] == "image"):
-                id = payload['events'][0]['message']['id']
-                bin = requests.get("https://api-data.line.me/v2/bot/message/"+str(id)+"/content", 
-                    headers={'Authorization' : "Bearer 7VhCJLogwUjrZjNtOXuXK7aqVWK7/vHKW5A1TdNnD4eFzoBOL8bM8ukFqD8QEsRPnkfO4TmwIZ2AREUEOTme4ijk6xbFnBmhNK0maDYizUVw96x0ZHAe95BTG9SuCsMB4mbY8/z9nxXcgos9fTJ8jgdB04t89/1O/w1cDnyilFU="}).text
-
-                im = Image.open(BytesIO(base64.b64decode(bin)))
-                r = requests.post(notify_url, headers=notify_headers, data = {'message': "IMG FOUND ",
-                                                                          'imageFile': bin})
-                print(r.text)
-                return 0
 
             message = payload['events'][0]['message']['text']
             if(message.isdigit()):
