@@ -5,6 +5,7 @@ def search(query=None,page=1):
         url = f"https://nhentai.net/api/galleries/search?query={query}&page={page}&sort=popular"
     else:
         url = f"https://nhentai.net/api/galleries/all?page={page}&sort=popular"
+    requests.get(url)
     res = requests.get(url).content.decode()
     return res
 
@@ -12,6 +13,7 @@ def getBookById(_id):
     if _id == None:
         return "id required."
     url = f"https://nhentai.net/api/gallery/{_id}"
+    requests.get(url)
     res = requests.get(url).content.decode()
     return res
 
