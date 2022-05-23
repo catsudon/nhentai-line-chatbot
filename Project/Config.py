@@ -79,6 +79,19 @@ def con2(img, title, code):
     return {
     "type": "bubble",
     "direction": "ltr",
+    "header": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "text",
+        "text": title[0:41],
+        "weight": "bold",
+        "size": "lg",
+        "color": "#3E2929",
+        "contents": []
+      }]
+    },
     "hero": {
       "type": "image",
       "url": img,
@@ -86,20 +99,6 @@ def con2(img, title, code):
       "aspectMode": "fit",
       "aspectRatio": "350:500",
       "backgroundColor": "#FFFFFFFF"
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": title[0:41],
-          "size": "lg",
-          "align": "start",
-          "gravity": "top",
-          "color": "#3E2929"
-        }
-      ]
     },
     "footer": {
       "type": "box",
