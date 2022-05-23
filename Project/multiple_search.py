@@ -177,62 +177,8 @@ def multiple(payload):
         print("no index given")
 
 
-    if(idx%5==3): # need to search for 2 pages   e.g. the index is 21-30 but one page only contains up to 25 books
-        reply_payload = []
-        title = []
-        code = []
-        media_id = []
-        
-
-        # first half   21-25
-        pageid = int((idx-1)/5) +1 # Q U I C K   M A T H S 
-        pageid = pageid*2 - 1
-        data = (search(message,pageid))
-        cnt = 0
-        target = 25
-        try:
-            data[0]
-        except KeyError:
-            nf(Reply_token,"multiple")
-            requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
-            return 400
-        for item in data:
-            if cnt < 20:
-                cnt=cnt+1
-                continue
-
-            print("{}   {} {} {}".format(cnt,item['title'], item['code'],item['cover_url']))
-            title.append(item['title'])
-            code.append(item['code'])
-            media_id.append(item['cover_url'])
-
-            cnt = cnt + 1
-            if cnt == target :
-                break
-
-        # second half   26-30
-        pageid = pageid+1
-        data = (search(message,pageid))
-        cnt = 0
-        target = 5
-        for item in data:
-            print("{}   {} {} {}".format(cnt,item['title'], item['code'], item['cover_url']))
-            title.append(item['title'])
-            code.append(item['code'])
-            media_id.append(item['cover_url'])
-
-            cnt = cnt + 1
-            if cnt == target :
-                break
-        
-
-
-
     else:
-        pidx = (idx-1)/5+1   # Q U I C K   M A T H S     
-        pidx=pidx*2
-        if(idx <= 2):
-             pidx=pidx-1
+        pidx = int((idx-1)/2 +1)
         data = (search(message,pidx))
         try:
             data[0]
@@ -242,14 +188,11 @@ def multiple(payload):
             return 400
         reply_payload,title,code,media_id = [],[],[],[]
         cnt = 0
-        target = 10
-        if idx%5==2:
+        if(idx %2 == 1):
+            target = 10
+        else:
             target = 20
-        elif idx%5==4:
-            target = 15
-        elif idx%5==0:
-            target=25
-        op = target-10 # 
+        op = target-10
         for item in data:
             if cnt < op:
                 cnt=cnt+1
