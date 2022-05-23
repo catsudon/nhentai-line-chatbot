@@ -114,7 +114,7 @@ def con2(img, title, code):
           "action": {
             "type": "uri",
             "label": "READ",
-            "uri": "https://nhentai.to/g/"+str(code)+"/1"
+            "uri": "https://nhentai.net/g/"+str(code)+"/1"
           },
           "flex": 6,
           "color": "#ff5e87",
