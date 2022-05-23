@@ -103,7 +103,7 @@ def con2(img, title, code):
     },
     "footer": {
       "type": "box",
-      "layout": "vertical",
+      "layout": "horizontal",
       "contents": [
         
         
@@ -111,9 +111,7 @@ def con2(img, title, code):
         "type": "box",
         "layout": "horizontal",
         "contents": [
-          {
-            "type": "filler"
-          },
+          
           {
           "type": "button",
           "action": {
@@ -127,19 +125,14 @@ def con2(img, title, code):
           "height": "md",
           "style": "primary",
           "gravity": "top"
-        },
-          {
-            "type": "filler"
-          }
+        }
         ]
       },
       {
         "type": "box",
         "layout": "horizontal",
         "contents": [
-          {
-            "type": "filler"
-          },
+         
           {
           "type": "button",
           "action": {
@@ -153,10 +146,7 @@ def con2(img, title, code):
           "height": "md",
           "style": "primary",
           "gravity": "top"
-        },
-          {
-            "type": "filler"
-          }
+        }
         ]
       },
         
