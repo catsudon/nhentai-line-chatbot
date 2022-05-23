@@ -78,7 +78,7 @@ def con2(img, title, code):
       
     return {
     "type": "bubble",
-    "size": "giga",
+    "size": "mega",
     "direction": "ltr",
     "header": {
     "type": "box",
