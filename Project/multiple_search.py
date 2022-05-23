@@ -79,7 +79,7 @@ def multiple(payload):
         pidx=pidx*2
         if(idx <= 2):
              pidx=pidx-1
-        data = json.loads(search(message,pidx))
+        data = (search(message,pidx))
         try:
             data[0]
         except KeyError:
