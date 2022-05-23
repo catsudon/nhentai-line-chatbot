@@ -107,7 +107,7 @@ def con2(img, title, code):
       "contents": [
         
         
-        {
+      {
         "type": "box",
         "layout": "horizontal",
         "contents": [
@@ -132,10 +132,15 @@ def con2(img, title, code):
             "type": "filler"
           }
         ]
-      }
-        
-        ,
-        {
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "filler"
+          },
+          {
           "type": "button",
           "action": {
             "type": "uri",
@@ -148,7 +153,16 @@ def con2(img, title, code):
           "height": "md",
           "style": "primary",
           "gravity": "top"
-        }
+        },
+          {
+            "type": "filler"
+          }
+        ]
+      },
+        
+
+        
+        
       #   ,
       #   {
       #   "type": "button",
