@@ -84,6 +84,7 @@ def con2(img, title, code):
       "url": img,
       "size": "full",
       "aspectMode": "fit",
+      "aspectRatio": "350:500",
       "backgroundColor": "#FFFFFFFF"
     },
     "body": {
