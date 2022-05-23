@@ -127,27 +127,28 @@ def con2(img, title, code):
             "uri": "https://hifumin.app/h/"+str(code)+"/1"
           },
           "flex": 6,
-          "color": "#ff5e87",
+          "color": "#9564f5",
           "margin": "xs",
           "height": "md",
           "style": "primary",
           "gravity": "top"
-        },
-        {
-        "type": "button",
-        "action": {
-          "type": "postback",
-          "label": "PREVIEW",
-          "text": "@p {}".format(str(code)),
-          "data": "view preview"
-        },
-        "flex": 6,
-        "color": "#9564f5",
-        "margin": "xs",
-        "height": "md",
-        "style": "primary",
-        "gravity": "top"
-      }
+        }
+      #   ,
+      #   {
+      #   "type": "button",
+      #   "action": {
+      #     "type": "postback",
+      #     "label": "PREVIEW",
+      #     "text": "@p {}".format(str(code)),
+      #     "data": "view preview"
+      #   },
+      #   "flex": 6,
+      #   "color": "#9564f5",
+      #   "margin": "xs",
+      #   "height": "md",
+      #   "style": "primary",
+      #   "gravity": "top"
+      # }
       ]
     }
   }
