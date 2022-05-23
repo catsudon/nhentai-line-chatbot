@@ -86,7 +86,7 @@ def con2(img, title, code):
       {
         "type": "text",
         "text": title[0:41],
-        "weight": "bold",
+        "weight": "regular",
         "size": "lg",
         "color": "#3E2929",
         "contents": []
@@ -97,7 +97,7 @@ def con2(img, title, code):
       "url": img,
       "size": "full",
       "aspectMode": "fit",
-      "aspectRatio": "350:500",
+ #     "aspectRatio": "350:500",
       "backgroundColor": "#FFFFFFFF"
     },
     "footer": {
