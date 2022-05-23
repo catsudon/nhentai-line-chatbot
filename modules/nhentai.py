@@ -10,7 +10,7 @@ def search(query="home",page=1):
     res = requests.get(url)
     soup = BeautifulSoup(res.content, "html.parser")
     divs = soup.find_all("div", {"class": "gallery"})
-    
+    books = []
     for div in divs:
         cover = div.find_all('a')[0].find_all('img')[1]['src']
         title = div.find_all('div')[0].text.strip()
@@ -20,7 +20,6 @@ def search(query="home",page=1):
                 "title" : title,
                 "code" : code
             })
-    books = []
     return books
 def getBookById(_id):
     if _id == None:
