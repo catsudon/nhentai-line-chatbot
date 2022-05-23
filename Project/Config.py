@@ -17,7 +17,7 @@ def con(code,title,pic,w=350,h=500):
     "direction": "ltr",
     "hero": {
       "type": "image",
-      "url": "https://t.nhentai.net/galleries/{}/thumb.jpg".format(pic),
+      "url": pic,
       "size": "full",
       "aspectRatio": "{}:{}".format(w,h),
       "aspectMode": "fit",
@@ -108,7 +108,7 @@ def con2(img, title, code):
     "contents": [
       {
         "type": "spacer",
-        "size": "xxl"
+        "size": "md"
       }
     ]
     },

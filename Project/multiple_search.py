@@ -37,20 +37,20 @@ def multiple(payload):
         cnt = 0
         target = 25
         try:
-            data['result'][0]
+            data[0]
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
             return 400
-        for item in data['result']:
+        for item in data:
             if cnt < 20:
                 cnt=cnt+1
                 continue
 
-            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
-            title.append(item['title']['pretty'])
-            code.append(item['id'])
-            media_id.append(item['media_id'])
+            print("{}   {} {} {}".format(cnt,item['title'], item['code'],item['cover_url']))
+            title.append(item['title'])
+            code.append(item['code'])
+            media_id.append(item['cover_url'])
 
             cnt = cnt + 1
             if cnt == target :
@@ -61,11 +61,11 @@ def multiple(payload):
         data = json.loads(search(message,pageid))
         cnt = 0
         target = 5
-        for item in data['result']:
-            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
-            title.append(item['title']['pretty'])
-            code.append(item['id'])
-            media_id.append(item['media_id'])
+        for item in data:
+            print("{}   {} {} {}".format(cnt,item['title'], item['code'], item['cover_url']))
+            title.append(item['title'])
+            code.append(item['code'])
+            media_id.append(item['cover_url'])
 
             cnt = cnt + 1
             if cnt == target :
@@ -81,7 +81,7 @@ def multiple(payload):
              pidx=pidx-1
         data = json.loads(search(message,pidx))
         try:
-            data['result'][0]
+            data[0]
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -96,15 +96,15 @@ def multiple(payload):
         elif idx%5==0:
             target=25
         op = target-10 # 
-        for item in data['result']:
+        for item in data:
             if cnt < op:
                 cnt=cnt+1
                 continue
 
-            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
-            title.append(item['title']['pretty'])
-            code.append(item['id'])
-            media_id.append(item['media_id'])
+            print("{}   {} {} {}".format(cnt,item['title'], item['code'], item['cover_url']))
+            title.append(item['title'])
+            code.append(item['code'])
+            media_id.append(item['cover_url'])
 
             cnt = cnt + 1
             if cnt == target :
