@@ -101,6 +101,17 @@ def con2(img, title, code):
  #     "aspectRatio": "350:500",
       "backgroundColor": "#FFFFFFFF"
     },
+    "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "spacer",
+        "size": "xxl"
+      }
+    ]
+    },
     "footer": {
       "type": "box",
       "layout": "horizontal",
