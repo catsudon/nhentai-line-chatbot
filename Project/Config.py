@@ -76,7 +76,6 @@ def con(code,title,pic,w=350,h=500):
 
 def con2(img, title, code):
       
-    title = title[1:-1]
     return {
     "type": "bubble",
     "direction": "ltr",
