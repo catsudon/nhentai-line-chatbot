@@ -46,24 +46,10 @@ def con(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ",
-            "uri": "https://nhentai.to/g/"+str(code)+"/1"
+            "uri": "https://hentaifox.com"+str(code)+"/1".replace("gallery", "g")
           },
           "flex": 6,
           "color": "#ff5e87",
-          "margin": "xs",
-          "height": "md",
-          "style": "primary",
-          "gravity": "top"
-        },
-        {
-          "type": "button",
-          "action": {
-            "type": "uri",
-            "label": "READ (no ads)",
-            "uri": "https://hifumin.app/h/"+str(code)+"/1"
-          },
-          "flex": 6,
-          "color": "#9564f5",
           "margin": "xs",
           "height": "md",
           "style": "primary",
