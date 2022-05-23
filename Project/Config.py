@@ -74,7 +74,7 @@ def con(code,title,pic,w=350,h=500):
   }
 
 
-def con2(code,title,pic,w=350,h=500):
+def con2(img, title, code):
       
     title = title[1:-1]
     return {
@@ -82,11 +82,10 @@ def con2(code,title,pic,w=350,h=500):
     "direction": "ltr",
     "hero": {
       "type": "image",
-      "url": "https://t.nhentai.net/galleries/{}/thumb.jpg".format(pic),
+      "url": img,
       "size": "full",
-      "aspectRatio": "{}:{}".format(w,h),
       "aspectMode": "fit",
-      "backgroundColor": "#FFC0CB"
+      "backgroundColor": "#FFFFFFFF"
     },
     "body": {
       "type": "box",

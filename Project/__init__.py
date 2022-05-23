@@ -51,24 +51,24 @@ def one_by_one(payload):
 
     print(getBookById(message))
     print("++++++++what is wrong with this +++++++++++++++")
-    book = json.loads(getBookById(message))
+    book = (getBookById(message))
     try:
-        title = book['title']['pretty']
+        title = book['cover_url']
     except KeyError:
         nf(Reply_token)
         return 404
-    img = book['media_id']
-    w = book['images']['cover']['w']
-    h = book['images']['cover']['h']
+    img = book['cover_url']
+    title = book['title']
+    code = book['code']
 
     Reply_message = json.dumps(title)
 
-    ReplyMessage(Reply_token,Reply_message,Channel_access_token,message,img,w,h)
+    ReplyMessage(Reply_token ,img, title, code)
     return 200
 
 
 
-def ReplyMessage(Reply_token, title, Line_Acees_Token , num, img , w , h):
+def ReplyMessage(Reply_token,img, title, code):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
     Authorization = 'Bearer {}'.format(Channel_access_token)
@@ -83,7 +83,7 @@ def ReplyMessage(Reply_token, title, Line_Acees_Token , num, img , w , h):
         "messages":[{
             "type": "flex",
             "altText": "NSFW",
-            "contents": con2(num,title,img,w,h)
+            "contents": con2(img, title, code)
     }]}
 
     data = json.dumps(data) ## dump dict >> string
