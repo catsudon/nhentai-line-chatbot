@@ -46,7 +46,7 @@ def con(code,title,pic,w=350,h=500):
           "action": {
             "type": "uri",
             "label": "READ",
-            "uri": "https://hentaifox.com"+str(code)+"/1".replace("gallery", "g")
+            "uri": ("https://hentaifox.com"+str(code)+"/1").replace("gallery", "g")
           },
           "flex": 6,
           "color": "#ff5e87",
