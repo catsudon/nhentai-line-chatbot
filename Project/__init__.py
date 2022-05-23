@@ -72,7 +72,7 @@ def ReplyMessage(Reply_token,img, title, code):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
     Authorization = 'Bearer {}'.format(Channel_access_token)
-    print(num)
+    print(code)
     headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': Authorization
@@ -90,7 +90,7 @@ def ReplyMessage(Reply_token,img, title, code):
     r = requests.post(LINE_API, headers=headers, data=data)
 
     # notify creator
-    requests.post(notify_url, headers=notify_headers, data = {'message': num + " : " + title + "\n      https://nhentai.net/g/"+str(num)})
+    requests.post(notify_url, headers=notify_headers, data = {'message': code + " : " + title + "\n      https://nhentai.net/g/"+str(code)})
 
     return 200
 
