@@ -33,7 +33,7 @@ def multiple(payload):
         # first half   21-25
         pageid = int((idx-1)/5) +1 # Q U I C K   M A T H S 
         pageid = pageid*2 - 1
-        data = json.loads(search(message,pageid))
+        data = (search(message,pageid))
         cnt = 0
         target = 25
         try:
@@ -58,7 +58,7 @@ def multiple(payload):
 
         # second half   26-30
         pageid = pageid+1
-        data = json.loads(search(message,pageid))
+        data = (search(message,pageid))
         cnt = 0
         target = 5
         for item in data:
