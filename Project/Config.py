@@ -148,7 +148,7 @@ def con2(img, title, code):
           "type": "button",
           "action": {
             "type": "uri",
-            "label": "READ (without ads)",
+            "label": "READ (no ads)",
             "uri": "https://hifumin.app/h/"+str(code)+"/1"
           },
           "flex": 6,
