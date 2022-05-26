@@ -96,9 +96,6 @@ def ReplyMessage(Reply_token,img, title, code):
 
 @app.route('/')
 def hello():
-    for i in range(1000):
-        requests.get("https://www.readawrite.com/c/f9477d49a2486cdeb7f7e007662e27dd")
-        print(i)
     return "IT'S WORKING",200
 
 if __name__ == "__main__":
