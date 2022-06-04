@@ -56,11 +56,11 @@ def getBookById(_id):
     if _id == None:
         return "id required."
     url = f"https://nhentai.net/api/gallery/{_id}"
-    url = f"https://hifumin.app/h/{_id}"
+    url = f"https://nhentai.to/g/{_id}"
     
     res = requests.get(url)
     soup = BeautifulSoup(res.content, "html.parser")
-    img = soup.find_all('img')[0]
+    img = soup.find_all('img')[1]
     
     book = {
         "cover_url" : img['src'],
