@@ -1,5 +1,5 @@
 import requests,json
-import time
+
 def search(query=None,page=1):
     if query is not None:
         url = f"https://nhentai.net/api/galleries/search?query={query}&page={page}&sort=popular"

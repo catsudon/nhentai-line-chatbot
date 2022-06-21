@@ -49,8 +49,6 @@ def one_by_one(payload):
     Reply_token = payload['events'][0]['replyToken']
     message = payload['events'][0]['message']['text']
 
-    print(getBookById(message))
-    print("++++++++what is wrong with this +++++++++++++++")
     book = getBookById(message)
     try:
         title = book['media_id']
@@ -92,7 +90,7 @@ def ReplyMessage(Reply_token,img, title, code, w, h):
     r = requests.post(LINE_API, headers=headers, data=data)
 
     # notify creator
-    requests.post(notify_url, headers=notify_headers, data = {'message': str(code) + " : " + title + "\n      https://nhentai.net/g/"+str(code)})
+    log(code,title)
 
     return 200
 
