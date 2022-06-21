@@ -53,7 +53,7 @@ def one_by_one(payload):
     print("++++++++what is wrong with this +++++++++++++++")
     book = (getBookById(message))
     try:
-        title = book['cover_url']
+        title = book['media_id']
     except KeyError:
         nf(Reply_token)
         return 404
