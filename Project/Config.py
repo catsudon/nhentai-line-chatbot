@@ -12,6 +12,117 @@ notify_token = 'dTHASUKdvjXK4PojkfsjVjEasZrvkvCMYtmvpgpJmuE'
 notify_headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+notify_token}
 
 
+def con(img, title, code, w=350, h=500):
+      
+    return {
+    "type": "bubble",
+    "size": "mega",
+    "direction": "ltr",
+    "header": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "text",
+        "text": title[0:41],
+        "weight": "regular",
+        "size": "lg",
+        "color": "#3E2929",
+        "contents": []
+      }]
+    },
+    "hero": {
+      "type": "image",
+      "url": "https://t.nhentai.net/galleries/{}/thumb.jpg".format(img),
+      "size": "full",
+      "aspectMode": "cover",
+      "aspectRatio": "{}:{}".format(w, h),
+      "backgroundColor": "#FFFFFFFF"
+    },
+    "body": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "md",
+    "contents": [
+      {
+        "type": "spacer",
+        "size": "md"
+      }
+    ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "horizontal",
+      "contents": [
+        
+        
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          
+          {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "READ",
+            "uri": "https://nhentai.net/g/"+str(code)+"/1"
+          },
+          "flex": 6,
+          "color": "#ff5e87",
+          "margin": "xs",
+          "height": "md",
+          "style": "primary",
+          "gravity": "top"
+        }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+         
+          {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "READ (no ads)",
+            "uri": "https://hifumin.app/h/"+str(code)+"/1"
+          },
+          "flex": 6,
+          "color": "#9564f5",
+          "margin": "xs",
+          "height": "md",
+          "style": "primary",
+          "gravity": "top"
+        }
+        ]
+      },
+        
+
+        
+        
+      #   ,
+      #   {
+      #   "type": "button",
+      #   "action": {
+      #     "type": "postback",
+      #     "label": "PREVIEW",
+      #     "text": "@p {}".format(str(code)),
+      #     "data": "view preview"
+      #   },
+      #   "flex": 6,
+      #   "color": "#9564f5",
+      #   "margin": "xs",
+      #   "height": "md",
+      #   "style": "primary",
+      #   "gravity": "top"
+      # }
+      ]
+    }
+  }
+
+
 def con2(img, title, code, w=350, h=500):
       
     return {
