@@ -11,54 +11,6 @@ notify_url = 'https://notify-api.line.me/api/notify'
 notify_token = 'dTHASUKdvjXK4PojkfsjVjEasZrvkvCMYtmvpgpJmuE'
 notify_headers = {'content-type':'application/x-www-form-urlencoded','Authorization':'Bearer '+notify_token}
 
-def con(code,title,pic,w=350,h=500):
-    return {
-    "type": "bubble",
-    "direction": "ltr",
-    "hero": {
-      "type": "image",
-      "url": pic,
-      "size": "full",
-      "aspectRatio": "{}:{}".format(w,h),
-      "aspectMode": "fit",
-      "backgroundColor": "#FFC0CB"
-    },
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": title[0:41],
-          "size": "xl",
-          "align": "start",
-          "gravity": "top",
-          "color": "#3E2929"
-        }
-      ]
-    },
-    "footer": {
-      "type": "box",
-      "layout": "horizontal",
-      "contents": [
-        {
-          "type": "button",
-          "action": {
-            "type": "uri",
-            "label": "READ",
-            "uri": ("https://hentaifox.com"+str(code)+"/1").replace("gallery", "g")
-          },
-          "flex": 6,
-          "color": "#ff5e87",
-          "margin": "xs",
-          "height": "md",
-          "style": "primary",
-          "gravity": "top"
-        }
-      ]
-    }
-  }
-
 
 def con2(img, title, code, w=350, h=500):
       

@@ -51,7 +51,7 @@ def one_by_one(payload):
 
     print(getBookById(message))
     print("++++++++what is wrong with this +++++++++++++++")
-    book = (getBookById(message))
+    book = getBookById(message)
     try:
         title = book['media_id']
     except KeyError:
