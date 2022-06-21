@@ -1,5 +1,5 @@
 ## nhentaiLineChatbot
-receive the book id from user through LINE --> get the book details then send back to user as Flex message
+receive the 6-digits code from user through LINE --> fetch the book details then send back to user as Flex message
 
 
 ## How to use ? ?

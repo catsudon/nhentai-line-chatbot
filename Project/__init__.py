@@ -96,7 +96,7 @@ def ReplyMessage(Reply_token,img, title, code, w, h):
 
 @app.route('/')
 def hello():
-    return "IT'S WORKING",200
+    return "<marquee>IT'S WORKING</marquee>",200
 
 if __name__ == "__main__":
     app.run(debug=True)
