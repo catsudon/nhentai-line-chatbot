@@ -60,7 +60,7 @@ def con(code,title,pic,w=350,h=500):
   }
 
 
-def con2(img, title, code, w, h):
+def con2(img, title, code, w=350, h=500):
       
     return {
     "type": "bubble",
