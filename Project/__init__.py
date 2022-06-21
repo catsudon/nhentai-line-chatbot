@@ -57,18 +57,20 @@ def one_by_one(payload):
     except KeyError:
         nf(Reply_token)
         return 404
-    img = book['cover_url']
-    title = book['title']
-    code = book['code']
+    img = book['media_id']
+    title = book['title']['pretty']
+    code = book['id']
+    w = book['images']['cover']['w']
+    h = book['images']['cover']['h']
 
     Reply_message = json.dumps(title)
 
-    ReplyMessage(Reply_token ,img, title, code)
+    ReplyMessage(Reply_token ,img, title, code, w, h)
     return 200
 
 
 
-def ReplyMessage(Reply_token,img, title, code):
+def ReplyMessage(Reply_token,img, title, code, w, h):
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
 
     Authorization = 'Bearer {}'.format(Channel_access_token)
@@ -83,7 +85,7 @@ def ReplyMessage(Reply_token,img, title, code):
         "messages":[{
             "type": "flex",
             "altText": "NSFW",
-            "contents": con2(img, title, code)
+            "contents": con2(img, title, code, w , h)
     }]}
 
     data = json.dumps(data) ## dump dict >> string

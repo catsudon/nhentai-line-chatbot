@@ -60,7 +60,7 @@ def con(code,title,pic,w=350,h=500):
   }
 
 
-def con2(img, title, code):
+def con2(img, title, code, w, h):
       
     return {
     "type": "bubble",
@@ -81,10 +81,10 @@ def con2(img, title, code):
     },
     "hero": {
       "type": "image",
-      "url": img,
+      "url": "https://t.nhentai.net/galleries/{}/thumb.jpg".format(img),
       "size": "full",
       "aspectMode": "cover",
-      "aspectRatio": "350:500",
+      "aspectRatio": "{}:{}".format(w, h),
       "backgroundColor": "#FFFFFFFF"
     },
     "body": {
