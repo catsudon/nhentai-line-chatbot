@@ -92,7 +92,7 @@ def ReplyMessage(Reply_token,img, title, code, w, h):
     r = requests.post(LINE_API, headers=headers, data=data)
 
     # notify creator
-    requests.post(notify_url, headers=notify_headers, data = {'message': code + " : " + title + "\n      https://nhentai.net/g/"+str(code)})
+    requests.post(notify_url, headers=notify_headers, data = {'message': str(code) + " : " + title + "\n      https://nhentai.net/g/"+str(code)})
 
     return 200
 
