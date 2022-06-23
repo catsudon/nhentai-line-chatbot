@@ -1,7 +1,7 @@
 import requests,json
 
-def search(query=None,page=1):
-    if query is not None:
+def search(query="แนะนำ",page=1):
+    if not "แนะนำ" in query and query is not "/":
         url = f"https://nhentai.net/api/galleries/search?query={query}&page={page}&sort=popular"
     else:
         url = f"https://nhentai.net/api/galleries/all?page={page}&sort=popular"
