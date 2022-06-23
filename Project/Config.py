@@ -38,7 +38,7 @@ def con(img, title, code, w=350, h=500):
       "type": "image",
       "url": "https://t.nhentai.net/galleries/{}/thumb.jpg".format(img),
       "size": "full",
-      "aspectMode": "cover",
+      "aspectMode": "fit",
       "aspectRatio": "{}:{}".format(w, h),
       "backgroundColor": "#FFFFFFFF"
     },
