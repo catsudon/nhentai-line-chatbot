@@ -61,7 +61,7 @@ def con(img, title, code, w=350, h=500):
         
       {
         "type": "box",
-        "layout": "horizontal",
+        "layout": "vertical",
         "contents": [
           
           {
@@ -193,7 +193,7 @@ def con2(img, title, code, w=350, h=500):
       },
       {
         "type": "box",
-        "layout": "horizontal",
+        "layout": "vertical",
         "contents": [
          
           {
