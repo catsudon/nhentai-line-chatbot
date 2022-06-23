@@ -26,6 +26,10 @@ def webhook():
         except Exception:
 
             message = payload['events'][0]['message']['text']
+            
+            if(message == "วิธีใช้งาน"):
+                return request.json, 200
+            
             if(message.isdigit()):
                 one_by_one(payload)
             elif(message[0:2] == '@p'):
