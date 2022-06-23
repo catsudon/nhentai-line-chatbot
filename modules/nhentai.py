@@ -4,7 +4,7 @@ def search(query="แนะนำ",page=1):
     if not "แนะนำ" in query and query is not "/":
         url = f"https://nhentai.net/api/galleries/search?query={query}&page={page}&sort=popular"
     else:
-        url = f"https://nhentai.net/api/galleries/search?sort=popular&uploaded%3C1d&query=/&page={page}"
+        url = f"https://nhentai.net/api/galleries/search?sort=popular&query=uploaded:<2d"
 
     res = requests.get(url).content.decode()
     return res
