@@ -44,7 +44,7 @@ def webhook():
 
     elif request.method == 'GET' :
         r = requests.get("https://nhentai.net")
-        return r , 200
+        return r.text , 200
 
     else:
         abort(400)
