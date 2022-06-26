@@ -57,11 +57,11 @@ def one_by_one(payload):
 
     book = getBookById(message)
     try:
-        title = book['media_id']
+        title = book['data']['nhentai']['by']['mediaId']
     except KeyError:
         nf(Reply_token)
         return 404
-    img = book['data']['nhentai']['by']['mediaId']
+    img = book
     title = book['data']['nhentai']['by']['title']['display']
     code = book['data']['nhentai']['by']['id']
     w = book['data']['nhentai']['by']['images']['cover']['w']
