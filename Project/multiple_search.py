@@ -35,7 +35,10 @@ def multiple(payload):
         # first half   21-25
         pageid = int((idx-1)/5) +1 # Q U I C K   M A T H S 
         pageid = pageid*2 - 1
-        data = json.loads(search(message,pageid))
+        try:
+            data = json.loads(search(message,pageid))
+        except Exception:
+            err(Reply_token)
         cnt = 0
         target = 25
         try:
@@ -60,7 +63,10 @@ def multiple(payload):
 
         # second half   26-30
         pageid = pageid+1
-        data = json.loads(search(message,pageid))
+        try:
+            data = json.loads(search(message,pageid))
+        except Exception:
+            err(Reply_token)
         cnt = 0
         target = 5
         for item in data['result']:
@@ -81,7 +87,11 @@ def multiple(payload):
         pidx=pidx*2
         if(idx <= 2):
              pidx=pidx-1
-        data = json.loads(search(message,pidx))
+        try:
+            data = json.loads(search(message,pageid))
+        except Exception:
+            err(Reply_token)
+            
         try:
             data['result'][0]
         except KeyError:

@@ -278,3 +278,31 @@ def nf(Reply_token,type = "index"):
   print(type)
   print("search not found")
   return 200
+
+
+
+def err(Reply_token,type = "index"):
+  LINE_API = 'https://api.line.me/v2/bot/message/reply'
+
+  Authorization = 'Bearer {}'.format(Channel_access_token)
+    #    print(reply_payload,indents=4)
+  headers = {
+      'Content-Type': 'application/json; charset=UTF-8',
+      'Authorization': Authorization
+  }
+
+  dt = {
+      "replyToken":Reply_token,
+      "messages":
+      [
+          {
+              "type": "text",
+              "text": "ระบบค้นหาพังชั่วคราว"
+          }
+      ]
+  }
+
+
+  dt = json.dumps(dt) # from dict to str
+  r = requests.post(LINE_API, headers=headers, data=dt)
+  return 200
