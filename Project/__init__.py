@@ -67,7 +67,7 @@ def one_by_one(payload):
     w = str(book['data']['nhentai']['by']['images']['cover']['w'])
     h = str(book['data']['nhentai']['by']['images']['cover']['h'])
 
-    Reply_message = json.dumps(title)
+    print(img,title,code,w,h)
 
     ReplyMessage(Reply_token ,img, title, code, w, h)
     return 200
