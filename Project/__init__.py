@@ -31,11 +31,12 @@ def webhook():
                 return request.json, 200
             
             if(message.isdigit()):
-                one_by_one(payload)
-            elif(message[0:2] == '@p'):
-                preview(payload['events'][0]['replyToken'] , message)
-                print("reply timeout")
+                 one_by_one(payload)
+            # elif(message[0:2] == '@p'):
+            #     preview(payload['events'][0]['replyToken'] , message)
+            #     print("reply timeout")
             else:
+                print("call multiple")
                 multiple(payload)
         
           
