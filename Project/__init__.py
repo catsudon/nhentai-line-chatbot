@@ -60,11 +60,11 @@ def one_by_one(payload):
     except KeyError:
         nf(Reply_token)
         return 404
-    img = book['media_id']
-    title = book['title']['pretty']
-    code = book['id']
-    w = book['images']['cover']['w']
-    h = book['images']['cover']['h']
+    img = book['data']['nhentai']['by']['mediaId']
+    title = book['data']['nhentai']['by']['title']['display']
+    code = book['data']['nhentai']['by']['id']
+    w = book['data']['nhentai']['by']['images']['cover']['w']
+    h = book['data']['nhentai']['by']['images']['cover']['h']
 
     Reply_message = json.dumps(title)
 
