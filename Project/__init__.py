@@ -63,9 +63,9 @@ def one_by_one(payload):
         return 404
     img = book
     title = book['data']['nhentai']['by']['title']['display']
-    code = book['data']['nhentai']['by']['id']
-    w = book['data']['nhentai']['by']['images']['cover']['w']
-    h = book['data']['nhentai']['by']['images']['cover']['h']
+    code = str(book['data']['nhentai']['by']['id'])
+    w = str(book['data']['nhentai']['by']['images']['cover']['w'])
+    h = str(book['data']['nhentai']['by']['images']['cover']['h'])
 
     Reply_message = json.dumps(title)
 
