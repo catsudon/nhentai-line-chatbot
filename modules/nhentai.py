@@ -12,7 +12,7 @@ def search(query="แนะนำ",page=1):
 def getBookById(_id):
     if _id == None:
         return "id required."
-    url = f"https://nhentai.net/api/gallery/{_id}"
+    url = "https://api.hifumin.app/"
     query = '{nhentai {  by(id:'+str(_id)+', channel:"HIFUMIN_FIRST")  {    id    mediaId    title {display:pretty}    images {cover {t,w,h}}  }}}'
     
     res = json.loads(requests.post(url, json={'query':query}).text)
