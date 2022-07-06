@@ -15,9 +15,6 @@ def getBookById(_id):
     url = 'https://api.hifumin.app/v1/graphql'
     query = '{nhentai {  by(id:'+str(_id)+', channel:"HIFUMIN_FIRST")  {    id    mediaId    title {display:pretty}    images {cover {t,w,h}}  }}}'
     
-    head = {
-        "Accept-Encoding": "gzip, deflate, br"
-    }
     r = requests.post(url, json={'query':query})
     print(r.status_code, r.text)
     res = json.loads(r)
