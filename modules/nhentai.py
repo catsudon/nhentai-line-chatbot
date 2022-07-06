@@ -17,7 +17,7 @@ def getBookById(_id):
     
     r = requests.post(url, json={'query':query})
     print(r.status_code, r.text)
-    res = json.loads(r)
+    res = json.loads(r.text)
     return res
     
 if __name__ == "__main__":
