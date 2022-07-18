@@ -248,13 +248,9 @@ def multiple(payload):
              pidx=pidx-1
         
             
-        try:
-            books = json.loads(search(message,pidx))
-            print(type(books))
-        except KeyError:
-            nf(Reply_token,"multiple")
-            requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
-            return 400
+        books = json.loads(search(message,pidx))
+        print(type(books))
+
         reply_payload,title,code,media_id = [],[],[],[]
         cnt = 0
         target = 10
