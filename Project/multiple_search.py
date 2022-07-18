@@ -200,7 +200,7 @@ def multiple(payload):
         cnt = 0
         target = 25
         try:
-            books = json.loads(search(message,pageid))
+            books = (search(message,pageid))
             print(type(books))
         except KeyError:
             nf(Reply_token,"multiple")
@@ -223,7 +223,7 @@ def multiple(payload):
         # second half   26-30
         pageid = pageid+1
         try:
-            books = json.loads(search(message,pageid))
+            books = (search(message,pageid))
         except Exception:
             err(Reply_token)
         cnt = 0
@@ -249,7 +249,7 @@ def multiple(payload):
         
             
         try:
-            books = json.loads(search(message,pidx))
+            books = (search(message,pidx))
             print(type(books))
         except KeyError:
             nf(Reply_token,"multiple")
