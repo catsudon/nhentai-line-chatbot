@@ -2,7 +2,7 @@ import requests,json
 
 def search(query="แนะนำ",page=1):
     if not "แนะนำ" in query and query != "/":
-        query = '{nhentai {\n  search(with:"'+str(query)+'", page:'+str(page)+', channel:"HIFUMIN_FIRST")\n  {\n    result {      id      mediaId      title {\n        pretty}}}}}'
+        query = '{nhentai {\n  search(with:"'+str(query)+'", page:'+str(int(page))+', channel:"HIFUMIN_FIRST")\n  {\n    result {      id      mediaId      title {\n        pretty}}}}}'
     else:
         query = '{nhentai {\n  search(with:"", channel:"HIFUMIN_FIRST")\n  {\n    result {\n      id\n      mediaId\n      title {\n        pretty\n      }\n      \n    }\n  }\n}\n}'
     
