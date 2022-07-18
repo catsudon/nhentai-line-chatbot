@@ -203,12 +203,12 @@ def multiple(payload):
         cnt = 0
         target = 25
         try:
-            data['nhentai']['search']['result']
+            data['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
             return 400
-        for item in data['nhentai']['search']['result']:
+        for item in data['data']['nhentai']['search']['result']:
             if cnt < 20:
                 cnt=cnt+1
                 continue
@@ -230,7 +230,7 @@ def multiple(payload):
             err(Reply_token)
         cnt = 0
         target = 5
-        for item in data['nhentai']['search']['result']:
+        for item in data['data']['nhentai']['search']['result']:
             print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
             title.append(item['title']['pretty'])
             code.append(item['id'])
@@ -254,7 +254,7 @@ def multiple(payload):
             err(Reply_token)
             
         try:
-            data['nhentai']['search']['result']
+            data['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -269,7 +269,7 @@ def multiple(payload):
         elif idx%5==0:
             target=25
         op = target-10 # 
-        for item in data['nhentai']['search']['result']:
+        for item in data['data']['nhentai']['search']['result']:
             if cnt < op:
                 cnt=cnt+1
                 continue
