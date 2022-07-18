@@ -203,7 +203,7 @@ def multiple(payload):
         cnt = 0
         target = 25
         try:
-            data['nhentai']['search']['result']['0']
+            data['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -254,7 +254,7 @@ def multiple(payload):
             err(Reply_token)
             
         try:
-            data['nhentai']['search']['result']['0']
+            data['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
