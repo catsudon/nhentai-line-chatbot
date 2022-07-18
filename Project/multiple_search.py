@@ -201,7 +201,6 @@ def multiple(payload):
         target = 25
         try:
             books = json.loads(search(message,pageid))
-            books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -250,7 +249,6 @@ def multiple(payload):
             
         try:
             books = json.loads(search(message,pidx))
-            books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
