@@ -248,9 +248,12 @@ def multiple(payload):
         pidx=pidx*2
         if(idx <= 2):
              pidx=pidx-1
+        
+        books = ""
         try:
             books = json.loads(search(message,pageid))
         except Exception:
+            print("error while loading books")
             err(Reply_token)
             
         try:
