@@ -197,18 +197,18 @@ def multiple(payload):
         pageid = int((idx-1)/5) +1 # Q U I C K   M A T H S 
         pageid = pageid*2 - 1
         try:
-            data = json.loads(search(message,pageid))
+            books = json.loads(search(message,pageid))
         except Exception:
             err(Reply_token)
         cnt = 0
         target = 25
         try:
-            data['data']['nhentai']['search']['result']
+            books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
             return 400
-        for item in data['data']['nhentai']['search']['result']:
+        for item in books['data']['nhentai']['search']['result']:
             if cnt < 20:
                 cnt=cnt+1
                 continue
@@ -225,12 +225,12 @@ def multiple(payload):
         # second half   26-30
         pageid = pageid+1
         try:
-            data = json.loads(search(message,pageid))
+            books = json.loads(search(message,pageid))
         except Exception:
             err(Reply_token)
         cnt = 0
         target = 5
-        for item in data['data']['nhentai']['search']['result']:
+        for item in books['data']['nhentai']['search']['result']:
             print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
             title.append(item['title']['pretty'])
             code.append(item['id'])
@@ -249,12 +249,12 @@ def multiple(payload):
         if(idx <= 2):
              pidx=pidx-1
         try:
-            data = json.loads(search(message,pageid))
+            books = json.loads(search(message,pageid))
         except Exception:
             err(Reply_token)
             
         try:
-            data['data']['nhentai']['search']['result']
+            books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -269,7 +269,7 @@ def multiple(payload):
         elif idx%5==0:
             target=25
         op = target-10 # 
-        for item in data['data']['nhentai']['search']['result']:
+        for item in books['data']['nhentai']['search']['result']:
             if cnt < op:
                 cnt=cnt+1
                 continue

@@ -23,4 +23,4 @@ def getBookById(_id):
     
 if __name__ == "__main__":
     k = search()
-    print(json.loads(k)['nhentai']['search']['result'])
+    print(json.loads(k)['data']['nhentai']['search']['result'])
