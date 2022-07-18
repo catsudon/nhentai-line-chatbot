@@ -4,9 +4,11 @@ def search(query="แนะนำ",page=1):
     if not "แนะนำ" in query and query != "/":
         url = f"https://nhentai.net/api/galleries/search?query={query}&page={page}&sort=popular"
     else:
-        url = f"https://nhentai.net/api/galleries/search?sort=popular&query=uploaded:<2d"
+        url = "https://api.hifumin.app/v1/graphql"
+        query = '{nhentai {\n  search(with:"", channel:"HIFUMIN_FIRST")\n  {\n    result {\n      id\n      mediaId\n      title {\n        pretty\n      }\n      \n    }\n  }\n}\n}'
 
-    res = requests.get(url).content.decode()
+    r = requests.post(url, json={'query':query})
+    res = json.loads(r.text)
     return res
 
 def getBookById(_id):
