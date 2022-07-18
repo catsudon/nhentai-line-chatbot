@@ -8,7 +8,7 @@ def search(query="แนะนำ",page=1):
     
     url = "https://api.hifumin.app/v1/graphql"
     r = requests.post(url, json={'query':query})
-    return json.loads(r.text)
+    return r.text
 
 def getBookById(_id):
     if _id == None:

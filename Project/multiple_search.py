@@ -200,7 +200,7 @@ def multiple(payload):
         cnt = 0
         target = 25
         try:
-            books = json.loads(search(message,pageid))
+            books = (search(message,pageid))
             print(type(books))
         except KeyError:
             nf(Reply_token,"multiple")
@@ -223,7 +223,7 @@ def multiple(payload):
         # second half   26-30
         pageid = pageid+1
         try:
-            books = json.loads(search(message,pageid))
+            books = (search(message,pageid))
         except Exception:
             err(Reply_token)
         cnt = 0
@@ -249,8 +249,9 @@ def multiple(payload):
         
             
         try:
-            books = json.loads(search(message,pidx))
+            books = (search(message,pidx))
             print(type(books))
+            print(books)
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -265,7 +266,7 @@ def multiple(payload):
         elif idx%5==0:
             target=25
         op = target-10 
-        print("DEBUG",type(books['data']['nhentai']['search']['result']))
+        print("DEBUG", type(books['data']['nhentai']['search']['result']))
         for item in books['data']['nhentai']['search']['result']:
             if cnt < op:
                 cnt=cnt+1
