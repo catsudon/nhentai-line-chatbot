@@ -196,13 +196,11 @@ def multiple(payload):
         # first half   21-25
         pageid = int((idx-1)/5) +1 # Q U I C K   M A T H S 
         pageid = pageid*2 - 1
-        try:
-            books = json.loads(search(message,pageid))
-        except Exception:
-            err(Reply_token)
+        
         cnt = 0
         target = 25
         try:
+            books = json.loads(search(message,pageid))
             books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
@@ -251,7 +249,7 @@ def multiple(payload):
         
             
         try:
-            books = json.loads(search(message,pageid))
+            books = json.loads(search(message,pidx))
             books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
