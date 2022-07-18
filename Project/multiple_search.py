@@ -249,14 +249,9 @@ def multiple(payload):
         if(idx <= 2):
              pidx=pidx-1
         
-        books = ""
-        try:
-            books = json.loads(search(message,pageid))
-        except Exception:
-            print("error while loading books")
-            err(Reply_token)
             
         try:
+            books = json.loads(search(message,pageid))
             books['data']['nhentai']['search']['result']
         except KeyError:
             nf(Reply_token,"multiple")
