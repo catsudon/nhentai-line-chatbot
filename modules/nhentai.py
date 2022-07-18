@@ -8,8 +8,7 @@ def search(query="แนะนำ",page=1):
         query = '{nhentai {\n  search(with:"", channel:"HIFUMIN_FIRST")\n  {\n    result {\n      id\n      mediaId\n      title {\n        pretty\n      }\n      \n    }\n  }\n}\n}'
 
     r = requests.post(url, json={'query':query})
-    res = json.loads(r.text)
-    return res
+    return r.text
 
 def getBookById(_id):
     if _id == None:
