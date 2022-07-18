@@ -2,11 +2,11 @@ import requests,json
 
 def search(query="แนะนำ",page=1):
     if not "แนะนำ" in query and query != "/":
-        url = f"https://nhentai.net/api/galleries/search?query={query}&page={page}&sort=popular"
+        query = '{nhentai {\n  search(with:"'+str(query)+'", page:'+str(page)+', channel:"HIFUMIN_FIRST")\n  {\n    result {      id      mediaId      title {\n        pretty}}}}}'
     else:
-        url = "https://api.hifumin.app/v1/graphql"
         query = '{nhentai {\n  search(with:"", channel:"HIFUMIN_FIRST")\n  {\n    result {\n      id\n      mediaId\n      title {\n        pretty\n      }\n      \n    }\n  }\n}\n}'
-
+    
+    url = "https://api.hifumin.app/v1/graphql"
     r = requests.post(url, json={'query':query})
     return r.text
 
