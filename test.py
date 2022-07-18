@@ -34,5 +34,5 @@ if __name__ == "__main__":
         
     except Exception :
         pass
-    print("debug" ,pidx)
-    print(books['data']['nhentai']['search']['result'])
+    for item in books['data']['nhentai']['search']['result']:
+        print(item)

@@ -242,15 +242,22 @@ def multiple(payload):
 
 
     else:
+        
+        print(message)
+        
         pidx = (idx-1)/5+1   # Q U I C K   M A T H S     
         pidx=pidx*2
         if(idx <= 2):
              pidx=pidx-1
         
             
-        books = json.loads(search(message,pidx))
-        print(type(books))
-
+        try:
+            books = json.loads(search(message,pidx))
+            print(type(books))
+        except KeyError:
+            nf(Reply_token,"multiple")
+            requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
+            return 400
         reply_payload,title,code,media_id = [],[],[],[]
         cnt = 0
         target = 10
