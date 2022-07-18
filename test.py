@@ -30,7 +30,7 @@ if __name__ == "__main__":
     
         
     try:
-        books = json.loads(search("riko sakurauchi",pidx))
+        books = json.loads(search("asdjsajwek234asjd",pidx))
         
     except Exception :
         pass

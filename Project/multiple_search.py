@@ -242,9 +242,6 @@ def multiple(payload):
 
 
     else:
-        
-        print(message)
-        
         pidx = (idx-1)/5+1   # Q U I C K   M A T H S     
         pidx=pidx*2
         if(idx <= 2):
@@ -267,7 +264,8 @@ def multiple(payload):
             target = 15
         elif idx%5==0:
             target=25
-        op = target-10 # 
+        op = target-10 
+        print("DEBUG", type(books['data']['nhentai']['search']['result']))
         for item in books['data']['nhentai']['search']['result']:
             if cnt < op:
                 cnt=cnt+1
