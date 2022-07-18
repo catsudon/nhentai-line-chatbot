@@ -211,10 +211,10 @@ def multiple(payload):
                 cnt=cnt+1
                 continue
 
-            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
+            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['mediaId']))
             title.append(item['title']['pretty'])
             code.append(item['id'])
-            media_id.append(item['media_id'])
+            media_id.append(item['mediaId'])
 
             cnt = cnt + 1
             if cnt == target :
@@ -229,10 +229,10 @@ def multiple(payload):
         cnt = 0
         target = 5
         for item in books['data']['nhentai']['search']['result']:
-            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
+            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['mediaId']))
             title.append(item['title']['pretty'])
             code.append(item['id'])
-            media_id.append(item['media_id'])
+            media_id.append(item['mediaId'])
 
             cnt = cnt + 1
             if cnt == target :
@@ -270,10 +270,10 @@ def multiple(payload):
                 cnt=cnt+1
                 continue
 
-            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['media_id']))
+            print("{}   {} {} {}".format(cnt,item['title']['pretty'],item['id'],item['mediaId']))
             title.append(item['title']['pretty'])
             code.append(item['id'])
-            media_id.append(item['media_id'])
+            media_id.append(item['mediaId'])
 
             cnt = cnt + 1
             if cnt == target :
