@@ -22,9 +22,17 @@ def getBookById(_id):
     return res
     
 if __name__ == "__main__":
+    idx=1
+    pidx = (idx-1)/5+1   # Q U I C K   M A T H S     
+    pidx=pidx*2
+    if(idx <= 2):
+         pidx=pidx-1
+    
+        
     try:
-        books = json.loads(search("riko sakurauchi"))
+        books = json.loads(search("riko sakurauchi",pidx))
+        
     except Exception :
         pass
-    books['data']['nhentai']['search']['result']
+    print("debug" ,pidx)
     print(books['data']['nhentai']['search']['result'])
