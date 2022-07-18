@@ -250,7 +250,7 @@ def multiple(payload):
             
         try:
             books = json.loads(search(message,pidx))
-            print(books)
+            print("debug" ,books)
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
