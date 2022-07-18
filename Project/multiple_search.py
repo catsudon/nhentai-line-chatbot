@@ -249,7 +249,7 @@ def multiple(payload):
         
             
         try:
-            books = json.loads(search(message,pageid))
+            books = json.loads(search(message,pidx))
             print(type(books))
         except KeyError:
             nf(Reply_token,"multiple")
