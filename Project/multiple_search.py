@@ -200,8 +200,7 @@ def multiple(payload):
         cnt = 0
         target = 25
         try:
-            books = (search(message,pageid))
-            print(type(books))
+            books = json.loads(search(message,pageid))
         except KeyError:
             nf(Reply_token,"multiple")
             requests.post(notify_url, headers=notify_headers, data = {'message': 'NOT FOUND ' + message})
@@ -250,7 +249,6 @@ def multiple(payload):
             
         try:
             books = json.loads(search(message,pidx))
-            print(type(books))
             print(json.dumps(books, sort_keys=True, indent=4))
         except KeyError:
             nf(Reply_token,"multiple")
