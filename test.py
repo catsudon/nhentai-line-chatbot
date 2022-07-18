@@ -2,7 +2,7 @@ import requests,json
 
 def search(query="แนะนำ",page=1):
     if not "แนะนำ" in query and query != "/":
-        query = '{nhentai {\n  search(with:"'+str(query)+'", page:'+str(page)+', channel:"HIFUMIN_FIRST")\n  {\n    result {      id      mediaId      title {\n        pretty}}}}}'
+        query = '{nhentai {\n  search(with:"' + str(query) + '", channel:"HIFUMIN_FIRST")\n  {\n    result {      id      mediaId      title {\n        pretty}}}}}'
     else:
         query = '{nhentai {\n  search(with:"", channel:"HIFUMIN_FIRST")\n  {\n    result {\n      id\n      mediaId\n      title {\n        pretty\n      }\n      \n    }\n  }\n}\n}'
     
@@ -22,6 +22,9 @@ def getBookById(_id):
     return res
     
 if __name__ == "__main__":
-    books = json.loads(search("riko sakurauchi"))
+    try:
+        books = json.loads(search("riko sakurauchi"))
+    except Exception :
+        pass
     books['data']['nhentai']['search']['result']
     print(books['data']['nhentai']['search']['result'])
